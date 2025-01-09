@@ -1,0 +1,23 @@
+<section class="w-96 h-52 bg-gray-100 rounded-md shadow-md flex flex-col justify-center items-center">
+    <form class="flex flex-col space-y-4 items-center" [formGroup]="profileForm" (submit)="onSubmit()">
+        <label>First Name <span class="text-red-600">*</span> 
+            <input class="border border-gray-300 rounded-md p-1" type="text" formControlName="firstName" required />
+            <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="alert alert-danger">
+                <div *ngIf="firstName?.hasError('required')" class="text-red-500">
+                    First Name is required.
+                </div>
+            </div>
+        </label>
+        <label>Last Name <span class="text-red-600">*</span>
+            <input class="border border-gray-300 rounded-md p-1" type="text" formControlName="lastName" />
+            <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="alert alert-danger">
+                <div *ngIf="lastName?.hasError('required')" class="text-red-500">
+                    Last Name is required.
+                </div>
+            </div>
+        </label>
+
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            type="submit">Submit</button>
+    </form>
+</section>
